@@ -1,0 +1,20 @@
+:root {
+  --fm-primary: #c83f68;
+  --fm-dark: #3b2430;
+  --fm-cream: #fff8f4;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--fm-dark);
+  background: linear-gradient(135deg, #fff8f4 0%, #fce9ef 55%, #f9dce5 100%);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--fm-primary);
+  --bs-btn-border-color: var(--fm-primary);
+  --bs-btn-hover-bg: #ae3157;
+  --bs-btn-hover-border-color: #ae3157;
+}
+
+.text-primary { color: var(--fm-primary) !important; }
