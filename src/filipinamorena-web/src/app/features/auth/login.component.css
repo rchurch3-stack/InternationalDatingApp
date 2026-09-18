@@ -1,0 +1,6 @@
+.login-shell { max-width: 1060px; width: 100%; }
+.hero-panel { min-height: 650px; background: radial-gradient(circle at 80% 15%, rgba(255,255,255,.18), transparent 30%), radial-gradient(circle at 15% 80%, rgba(255,184,203,.25), transparent 35%), linear-gradient(145deg, #4b2035, #a62e58 58%, #d55a7e); }
+.tracking { letter-spacing: .16em; }
+.form-control:focus { border-color: #c83f68; box-shadow: 0 0 0 .25rem rgba(200, 63, 104, .16); }
+.divider { display: flex; align-items: center; gap: 1rem; font-size: .875rem; }
+.divider::before, .divider::after { content: ''; height: 1px; flex: 1; background: #dee2e6; }

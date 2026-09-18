@@ -1,0 +1,73 @@
+<main class="container min-vh-100 d-flex align-items-center py-5">
+  <div class="row g-0 shadow-lg rounded-4 overflow-hidden bg-white mx-auto login-shell">
+    <section class="col-lg-6 d-none d-lg-flex hero-panel text-white p-5 flex-column justify-content-between">
+      <a class="brand text-white text-decoration-none fs-3 fw-bold" href="/">
+        <i class="bi bi-heart-fill me-2" aria-hidden="true"></i>FilipinaMorena
+      </a>
+      <div>
+        <p class="text-uppercase small fw-semibold tracking">Meet with intention</p>
+        <h1 class="display-5 fw-bold">Your next meaningful connection starts here.</h1>
+        <p class="lead mb-0 opacity-75">A warm, respectful community for authentic relationships.</p>
+      </div>
+      <small class="opacity-75"><i class="bi bi-shield-check me-2"></i>Secure sign-in and optional authenticator MFA</small>
+    </section>
+
+    <section class="col-12 col-lg-6 p-4 p-md-5">
+      <div class="d-lg-none text-primary fs-4 fw-bold mb-4">
+        <i class="bi bi-heart-fill me-2"></i>FilipinaMorena
+      </div>
+      <h2 class="fw-bold mb-2">Welcome back</h2>
+      <p class="text-secondary mb-4">Sign in to continue discovering genuine connections.</p>
+
+      @if (error()) {
+        <div class="alert alert-danger py-2" role="alert">{{ error() }}</div>
+      }
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="mb-3">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-control form-control-lg" id="email" type="email" formControlName="email" autocomplete="email" placeholder="you@example.com">
+          @if (form.controls.email.touched && form.controls.email.invalid) {
+            <div class="text-danger small mt-1">Enter a valid email address.</div>
+          }
+        </div>
+        <div class="mb-3">
+          <div class="d-flex justify-content-between">
+            <label class="form-label" for="password">Password</label>
+            <a class="small link-secondary" href="#">Forgot password?</a>
+          </div>
+          <input class="form-control form-control-lg" id="password" type="password" formControlName="password" autocomplete="current-password" placeholder="Your password">
+        </div>
+
+        @if (mfaRequired()) {
+          <div class="mb-3">
+            <label class="form-label" for="totpCode">Authenticator code</label>
+            <input class="form-control form-control-lg" id="totpCode" formControlName="totpCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000">
+            <div class="form-text">Enter the 6-digit code from your authenticator app.</div>
+          </div>
+        }
+
+        <button class="btn btn-primary btn-lg w-100" type="submit" [disabled]="loading()">
+          @if (loading()) { <span class="spinner-border spinner-border-sm me-2"></span> }
+          Sign in
+        </button>
+      </form>
+
+      <div class="divider text-secondary my-4"><span>or continue with</span></div>
+      <div class="row g-2">
+        <div class="col-6">
+          <button class="btn btn-outline-secondary w-100 py-2" type="button" (click)="social('google')">
+            <i class="bi bi-google me-2"></i>Google
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-outline-secondary w-100 py-2" type="button" (click)="social('facebook')">
+            <i class="bi bi-facebook me-2"></i>Facebook
+          </button>
+        </div>
+      </div>
+
+      <p class="text-center text-secondary mt-4 mb-0">New here? <a class="fw-semibold text-primary" href="#">Create an account</a></p>
+    </section>
+  </div>
+</main>
